@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghana Journalists Association — Member Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:    #c8102e;
+  --red-dk: #9b0c22;
+  --red-lt: #fdf0f2;
+  --gold:   #f0b323;
+  --gold-dk:#c8920a;
+  --gold-lt:#fffbef;
+  --green:  #006b3f;
+  --green-lt:#e8f5ee;
+  --ink:    #111a22;
+  --ink-mid:#2e3d4e;
+  --ink-soft:#5c6e7e;
+  --ink-faint:#96aab8;
+  --surface:#f5f4f0;
+  --white:  #ffffff;
+  --border: #dcd7cc;
+  --border-focus:#006b3f;
+  --err:    #b91c1c;
+  --err-bg: #fef2f2;
+  --ok-bg:  #f0fdf4;
+  --ok:     #166534;
+  --r:      10px;
+  --r-sm:   6px;
+  --shadow: 0 2px 18px rgba(17,26,34,0.09);
+  --shadow-lg: 0 8px 36px rgba(17,26,34,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;font-size:15px;line-height:1.65}
+
+/* ── FLAG STRIP ── */
+.flag-strip{display:flex;height:7px}
+.flag-strip div{flex:1}
+.fs-red{background:var(--red)}
+.fs-gold{background:var(--gold)}
+.fs-green{background:var(--green)}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--ink);color:rgba(255,255,255,0.6);font-size:11.5px;font-weight:300;letter-spacing:0.06em;padding:7px 32px;display:flex;align-items:center;justify-content:space-between}
+.topbar-left{display:flex;align-items:center;gap:20px}
+.topbar-pill{background:rgba(240,179,35,0.15);border:1px solid rgba(240,179,35,0.3);color:var(--gold);padding:3px 10px;border-radius:12px;font-size:10.5px;font-weight:500;letter-spacing:0.08em}
+
+/* ── HEADER ── */
+.site-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 10px rgba(17,26,34,0.07)}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 32px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit}
+.logo-emblem{width:54px;height:54px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;overflow:hidden}
+.logo-emblem::after{content:'';position:absolute;inset:4px;border-radius:50%;border:1.5px solid rgba(240,179,35,0.45)}
+.logo-emblem-inner{display:flex;flex-direction:column;align-items:center;gap:1px;z-index:1}
+.lei-top{font-size:9px;font-weight:600;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase}
+.lei-icon{font-size:20px}
+.lei-bot{font-size:8px;font-weight:500;color:rgba(240,179,35,0.6);letter-spacing:0.1em}
+.logo-words{}
+.logo-name{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:0.01em;line-height:1.2}
+.logo-name span{color:var(--red)}
+.logo-sub{font-size:10.5px;font-weight:400;color:var(--ink-soft);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
+.header-right{display:flex;align-items:center;gap:10px}
+.hbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:20px;font-size:12.5px;font-weight:500;font-family:'IBM Plex Sans',sans-serif;text-decoration:none;cursor:pointer;transition:all .2s;border:1px solid;white-space:nowrap}
+.hbtn:focus{outline:2px solid currentColor;outline-offset:2px}
+.hbtn-ghost{color:var(--ink-mid);border-color:var(--border);background:transparent}
+.hbtn-ghost:hover{background:var(--surface);border-color:var(--ink-faint)}
+.hbtn-solid{color:white;background:var(--red);border-color:var(--red)}
+.hbtn-solid:hover{background:var(--red-dk)}
+
+/* ── HERO ── */
+.hero{background:var(--ink);padding:60px 32px 52px;position:relative;overflow:hidden}
+.hero-geo{position:absolute;right:-60px;top:-60px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(240,179,35,0.12);pointer-events:none}
+.hero-geo2{position:absolute;right:30px;top:30px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(200,16,46,0.15);pointer-events:none}
+.hero-ink-bar{position:absolute;left:0;bottom:0;width:3px;height:100%;background:linear-gradient(180deg,var(--red),var(--gold),var(--green))}
+.hero-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;background:rgba(240,179,35,0.12);border:1px solid rgba(240,179,35,0.28);border-radius:14px;color:var(--gold);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px}
+.hero-eyebrow-dot{width:5px;height:5px;background:var(--gold);border-radius:50%}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:40px;font-weight:700;color:white;line-height:1.18;letter-spacing:-0.01em;margin-bottom:12px}
+.hero h1 .red{color:var(--red)}
+.hero h1 .gold{font-style:italic;color:var(--gold)}
+.hero-desc{color:rgba(255,255,255,0.58);font-size:14.5px;font-weight:300;max-width:500px;line-height:1.75}
+.hero-aside{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--r);padding:24px 26px;min-width:230px;flex-shrink:0}
+.hero-aside-title{font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px}
+.stat-row{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.stat-row:last-child{border-bottom:none}
+.sv{font-family:'Libre Baskerville',serif;font-size:27px;font-weight:700;color:var(--gold);min-width:54px}
+.sl{font-size:12px;color:rgba(255,255,255,0.46);font-weight:300}
+
+/* ── PROGRESS ── */
+.prog-bar-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:11px 32px}
+.prog-bar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.prog-lbl{font-size:12px;font-weight:500;color:var(--ink-soft);white-space:nowrap;min-width:120px}
+.prog-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:2px;transition:width .4s ease}
+.prog-num{font-size:12px;font-weight:600;color:var(--green);min-width:34px;text-align:right}
+
+/* ── PAGE BODY ── */
+.page-body{max-width:1180px;margin:0 auto;padding:36px 32px 80px;display:grid;grid-template-columns:1fr 370px;gap:28px;align-items:start}
+
+/* ── FORM CARD ── */
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.tab-bar{display:flex;border-bottom:2px solid var(--border);background:var(--surface)}
+.tab{padding:13px 20px;font-size:12.5px;font-weight:500;color:var(--ink-soft);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;user-select:none;white-space:nowrap}
+.tab:focus{outline:2px solid var(--red);outline-offset:-2px}
+.tab.active{color:var(--red);border-bottom-color:var(--red);background:var(--white)}
+.tab:hover:not(.active){color:var(--ink)}
+.tab-panel{display:none;padding:30px}
+.tab-panel.active{display:block}
+
+/* ── FORM FIELDS ── */
+.sec-head{font-family:'Libre Baskerville',serif;font-size:15.5px;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1.5px solid var(--border);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.sec-icon{width:28px;height:28px;background:var(--red-lt);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.sec-icon.g{background:var(--green-lt)}
+.sec-icon.gd{background:var(--gold-lt)}
+
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:14px}
+.frow.t3{grid-template-columns:1fr 1fr 1fr}
+.frow.f1{grid-template-columns:1fr}
+.fg{display:flex;flex-direction:column;gap:5px}
+label.fl{font-size:12.5px;font-weight:500;color:var(--ink-mid)}
+label.fl .req{color:var(--err);font-size:11px}
+label.fl .opt{color:var(--ink-faint);font-size:11px;font-weight:300}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=url],select,textarea{width:100%;padding:10px 13px;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);outline:none;transition:border-color .18s,background .18s,box-shadow .18s;-webkit-appearance:none;appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--border-focus);background:var(--white);box-shadow:0 0 0 3px rgba(0,107,63,0.09)}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--err);background:var(--err-bg)}
+input::placeholder{color:var(--ink-faint);font-weight:300}
+textarea{min-height:86px;resize:vertical;line-height:1.55}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235c6e7e'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.fhint{font-size:11px;color:var(--ink-faint);font-weight:300}
+.ferr{font-size:11px;color:var(--err);display:none}
+.fg.err input,.fg.err select{border-color:var(--err);background:var(--err-bg)}
+.fg.err .ferr{display:block}
+
+/* Photo */
+.photo-row{display:flex;align-items:center;gap:18px;margin-bottom:18px;padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm)}
+.photo-circle{width:70px;height:70px;border-radius:50%;background:var(--white);border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;flex-shrink:0;font-size:24px;transition:border-color .2s}
+.photo-circle:hover{border-color:var(--red)}
+.photo-circle img{width:100%;height:100%;object-fit:cover}
+.photo-info p{font-size:13px;font-weight:500;margin-bottom:4px}
+.photo-info small{font-size:11px;color:var(--ink-faint)}
+.ubtn{display:inline-block;margin-top:7px;padding:6px 13px;font-size:12px;font-weight:500;font-family:'IBM Plex Sans',sans-serif;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:all .15s;color:var(--ink-mid)}
+.ubtn:hover{background:var(--border)}
+.ubtn:focus{outline:2px solid var(--border-focus);outline-offset:2px}
+
+/* Media type checkboxes */
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.mc{position:relative;cursor:pointer}
+.mc input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.mc-card{padding:11px 8px;border:1.5px solid var(--border);border-radius:var(--r-sm);text-align:center;transition:all .2s;background:var(--surface)}
+.mc-card .mc-icon{font-size:18px;margin-bottom:4px}
+.mc-card .mc-lbl{font-size:11.5px;font-weight:500;color:var(--ink-mid)}
+.mc input:checked+.mc-card{border-color:var(--red);background:var(--red-lt);box-shadow:0 0 0 2px rgba(200,16,46,0.1)}
+.mc input:checked+.mc-card .mc-lbl{color:var(--red-dk)}
+.mc input:focus-visible+.mc-card{outline:2px solid var(--red);outline-offset:2px}
+
+/* Consent */
+.consent-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;margin:18px 0}
+.crow{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.crow:last-child{border-bottom:none}
+.crow input[type=checkbox]{width:15px;height:15px;accent-color:var(--green);margin-top:3px;flex-shrink:0;cursor:pointer}
+.crow input[type=checkbox]:focus{outline:2px solid var(--green);outline-offset:2px}
+.crow label{font-size:12.5px;color:var(--ink-soft);cursor:pointer;line-height:1.5}
+.crow label a{color:var(--green);text-decoration:none}
+.crow label a:hover{text-decoration:underline}
+.crow label a:focus{outline:2px solid var(--green);outline-offset:2px}
+
+/* Submit */
+.submit-row{display:flex;gap:11px;align-items:center;margin-top:8px}
+.btn-sub{flex:1;padding:13px 20px;background:var(--red);color:white;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:600;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s;letter-spacing:0.02em}
+.btn-sub:hover{background:var(--red-dk);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-sub:active{transform:none}
+.btn-sub:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-sub:focus{outline:2px solid var(--red);outline-offset:2px}
+.btn-next{flex:1;padding:13px 20px;background:var(--ink);color:white;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:600;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .2s}
+.btn-next:hover{background:var(--ink-mid);transform:translateY(-1px)}
+.btn-next:focus{outline:2px solid var(--ink);outline-offset:2px}
+.btn-back{padding:13px 16px;background:transparent;color:var(--ink-soft);font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:500;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:all .15s}
+.btn-back:hover{background:var(--surface);color:var(--ink)}
+.btn-back:focus{outline:2px solid var(--border-focus);outline-offset:2px}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.sc{background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.sc-head{padding:14px 18px;border-bottom:1px solid var(--border);background:var(--surface);display:flex;align-items:center;gap:10px}
+.sci{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sci-r{background:var(--red-lt)}
+.sci-g{background:var(--green-lt)}
+.sci-gd{background:var(--gold-lt)}
+.sc-title{font-size:13.5px;font-weight:600;color:var(--ink)}
+.sc-sub{font-size:11px;color:var(--ink-faint);margin-top:1px}
+.sc-body{padding:18px}
+
+.url-row{display:flex;gap:8px;margin-bottom:12px}
+.url-row input{flex:1;padding:9px 11px;font-size:12.5px;min-width:0}
+.btn-embed{padding:9px 14px;background:var(--red);color:white;border:none;border-radius:var(--r-sm);font-size:12.5px;font-weight:500;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;white-space:nowrap;transition:background .2s}
+.btn-embed:hover{background:var(--red-dk)}
+.btn-embed:focus{outline:2px solid var(--red);outline-offset:2px}
+.btn-save{padding:9px 14px;background:var(--green);color:white;border:none;border-radius:var(--r-sm);font-size:12.5px;font-weight:500;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;white-space:nowrap;transition:background .2s}
+.btn-save:hover{background:#005230}
+.btn-save:focus{outline:2px solid var(--green);outline-offset:2px}
+
+.ev{border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;background:var(--surface);min-height:190px;display:flex;align-items:center;justify-content:center}
+.ev iframe{width:100%;border:none;display:block}
+.ep{text-align:center;padding:28px 14px;color:var(--ink-faint)}
+.ep .epi{font-size:34px;margin-bottom:10px}
+.ep p{font-size:12.5px;line-height:1.6}
+
+.steps{margin-top:12px}
+.si{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border)}
+.si:last-child{border-bottom:none}
+.sn{width:20px;height:20px;background:var(--ink);color:white;border-radius:50%;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.st{font-size:12px;color:var(--ink-soft);line-height:1.55}
+.st strong{color:var(--ink);font-weight:500}
+
+.drive-st{display:none;padding:9px 11px;border-radius:var(--r-sm);font-size:12px;margin-bottom:10px}
+.dst-ok{display:block;background:var(--ok-bg);color:var(--ok);border:1px solid #bbf7d0}
+.dst-err{display:block;background:var(--err-bg);color:var(--err);border:1px solid #fecaca}
+
+/* GJA Facts */
+.gja-card{background:var(--ink);border-radius:var(--r);padding:20px 22px}
+.gja-card h4{font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;color:white;margin-bottom:14px;opacity:.92}
+.gja-row{display:flex;align-items:flex-start;gap:11px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.gja-row:last-child{border-bottom:none}
+.gja-bar{width:3px;height:100%;min-height:16px;border-radius:2px;flex-shrink:0;margin-top:4px}
+.gja-bar.r{background:var(--red)}
+.gja-bar.g{background:var(--gold)}
+.gja-bar.gr{background:var(--green)}
+.gja-txt{font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.55}
+.gja-txt strong{color:rgba(255,255,255,0.88);font-weight:500}
+
+/* ── MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(17,26,34,0.72);z-index:999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
+.modal-bg.open{display:flex;animation:fadeIn .2s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--white);border-radius:14px;max-width:460px;width:100%;padding:40px 36px;text-align:center;box-shadow:0 24px 80px rgba(17,26,34,0.28);animation:popIn .3s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes popIn{from{transform:scale(.87) translateY(18px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.modal-flag{display:flex;height:5px;border-radius:3px 3px 0 0;overflow:hidden;margin:-40px -36px 28px}
+.modal-flag div{flex:1}
+.mf-r{background:var(--red)}
+.mf-g{background:var(--gold)}
+.mf-gr{background:var(--green)}
+.modal-check{width:62px;height:62px;background:var(--green-lt);border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.modal h3{font-family:'Libre Baskerville',serif;font-size:23px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.modal p{font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:18px}
+.modal-ref{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:13px 15px;text-align:left;margin-bottom:22px}
+.mref-row{display:flex;justify-content:space-between;font-size:12.5px;padding:4px 0}
+.mref-row span{color:var(--ink-soft)}
+.mref-row strong{font-weight:500;color:var(--ink)}
+.modal-btns{display:flex;gap:10px;justify-content:center}
+.mbtn{padding:11px 22px;border-radius:var(--r-sm);font-size:13.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;cursor:pointer;transition:all .2s;border:none}
+.mbtn:focus{outline:2px solid currentColor;outline-offset:2px}
+.mbtn-p{background:var(--red);color:white}
+.mbtn-p:hover{background:var(--red-dk)}
+.mbtn-s{background:var(--surface);color:var(--ink-mid);border:1px solid var(--border)}
+.mbtn-s:hover{background:var(--border)}
+
+/* review */
+.review-grid{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;margin-bottom:18px}
+.rv{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12.5px}
+.rv:last-child{border-bottom:none}
+.rv span{color:var(--ink-soft)}
+.rv strong{font-weight:500;text-align:right;max-width:58%;color:var(--ink)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:920px){
+  .page-body{grid-template-columns:1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-aside{min-width:unset;display:flex;gap:0;flex-direction:row;flex-wrap:wrap}
+  .stat-row{flex:1 1 120px}
+  .hero h1{font-size:30px}
+  .dashboard-container{grid-template-columns:1fr}
+  .dashboard-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .header-inner{padding:0 16px}
+  .hero{padding:40px 16px 36px}
+  .page-body{padding:24px 16px 60px}
+  .frow,.frow.t3{grid-template-columns:1fr}
+  .tab{padding:11px 13px;font-size:12px}
+  .tab-panel{padding:18px 16px}
+  .media-grid{grid-template-columns:repeat(2,1fr)}
+  .topbar{display:none}
+  .table-header,.table-row{grid-template-columns:1fr}
+  .action-buttons{flex-wrap:wrap}
+  .dashboard-stats{grid-template-columns:1fr}
+  .hero h1{font-size:24px}
+}
+
+/* ── PAGE SWITCHING ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── LOGIN PAGE ── */
+.login-container{background:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+.login-content{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 32px}
+.login-card{background:var(--white);border-radius:var(--r);padding:40px;max-width:420px;width:100%;box-shadow:var(--shadow-lg)}
+.login-card h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.login-card p{font-size:13px;color:var(--ink-soft);margin-bottom:28px}
+.login-form .fg{margin-bottom:16px}
+.login-form label{font-weight:600;color:var(--ink-mid)}
+.login-form input{width:100%;padding:12px;border:1px solid var(--border);border-radius:var(--r-sm);font-size:14px;margin-top:4px}
+.login-form input:focus{border-color:var(--border-focus);box-shadow:0 0 0 3px rgba(0,107,63,0.09)}
+.login-error{background:var(--err-bg);color:var(--err);padding:12px;border-radius:var(--r-sm);margin-bottom:16px;font-size:13px;display:none}
+.login-btn{width:100%;padding:13px;background:var(--red);color:white;border:none;border-radius:var(--r-sm);font-weight:600;cursor:pointer;font-size:14px;transition:all .2s;margin-top:4px}
+.login-btn:hover{background:var(--red-dk);transform:translateY(-1px)}
+.login-btn:focus{outline:2px solid var(--red);outline-offset:2px}
+.login-footer{text-align:center;margin-top:20px;font-size:12px;color:var(--ink-faint)}
+
+/* ── ADMIN DASHBOARD ── */
+.dashboard-container{display:grid;grid-template-columns:280px 1fr;gap:24px;max-width:1380px;margin:0 auto;padding:32px}
+.dashboard-left{display:flex;flex-direction:column;gap:20px}
+.dashboard-main{flex:1}
+.dashboard-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);padding:16px;box-shadow:var(--shadow)}
+.stat-card h3{font-size:11px;font-weight:500;color:var(--ink-faint);text-transform:uppercase;margin-bottom:8px}
+.stat-card .stat-value{font-family:'Libre Baskerville',serif;font-size:24px;font-weight:700;color:var(--red)}
+.filter-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.filter-card h3{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px}
+.filter-group{margin-bottom:14px}
+.filter-group:last-child{margin-bottom:0}
+.filter-group label{display:block;font-size:12px;font-weight:500;color:var(--ink-mid);margin-bottom:6px}
+.filter-group input,.filter-group select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:var(--r-sm);font-size:12px}
+.filter-group input:focus,.filter-group select:focus{border-color:var(--border-focus);outline:2px solid rgba(0,107,63,0.09)}
+.members-table{background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.table-header{display:grid;grid-template-columns:1.5fr 1.2fr 1fr 1fr 0.8fr 1.2fr;gap:16px;padding:16px;background:var(--surface);border-bottom:1px solid var(--border);font-weight:600;color:var(--ink-mid);font-size:12px}
+.table-row{display:grid;grid-template-columns:1.5fr 1.2fr 1fr 1fr 0.8fr 1.2fr;gap:16px;padding:14px 16px;border-bottom:1px solid var(--border);align-items:center;font-size:13px}
+.table-row:last-child{border-bottom:none}
+.table-row:hover{background:var(--surface)}
+.member-name{font-weight:500;color:var(--ink)}
+.member-status{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:500}
+.member-status.pending{background:rgba(240,179,35,0.2);color:var(--gold-dk)}
+.member-status.approved{background:var(--green-lt);color:var(--green)}
+.member-status.rejected{background:var(--red-lt);color:var(--red-dk)}
+.action-buttons{display:flex;gap:6px}
+.action-btn{padding:6px 10px;border:1px solid var(--border);background:transparent;border-radius:var(--r-sm);cursor:pointer;font-size:11px;font-weight:500;color:var(--ink-mid);transition:all .2s}
+.action-btn:hover{background:var(--surface);color:var(--ink)}
+.action-btn:focus{outline:2px solid currentColor;outline-offset:1px}
+.action-btn.approve{color:var(--green);border-color:var(--green)}
+.action-btn.approve:hover{background:var(--green-lt)}
+.action-btn.reject{color:var(--red);border-color:var(--red)}
+.action-btn.reject:hover{background:var(--red-lt)}
+.table-empty{padding:40px 16px;text-align:center;color:var(--ink-faint);font-size:13px}
+
+/* ── DASHBOARD HEADER ── */
+.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.dashboard-header h1{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;color:var(--ink)}
+.dashboard-actions{display:flex;gap:10px}
+.export-btn{padding:10px 16px;background:var(--green);color:white;border:none;border-radius:var(--r-sm);cursor:pointer;font-weight:500;font-size:13px;transition:all .2s}
+.export-btn:hover{background:#005230}
+.export-btn:focus{outline:2px solid var(--green);outline-offset:2px}
+.logout-btn{padding:10px 16px;background:var(--red);color:white;border:none;border-radius:var(--r-sm);cursor:pointer;font-weight:500;font-size:13px;transition:all .2s}
+.logout-btn:hover{background:var(--red-dk)}
+.logout-btn:focus{outline:2px solid var(--red);outline-offset:2px}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ ADMIN LOGIN PAGE ══════════════════════════════════════ -->
+<div class="page active" id="page-login">
+  <!-- FLAG STRIP -->
+  <div class="flag-strip">
+    <div class="fs-red"></div>
+    <div class="fs-gold"></div>
+    <div class="fs-green"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <div class="topbar" style="justify-content:center">
+    <div>Ghana Journalists Association · Administrator Portal</div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-content">
+      <div class="login-card">
+        <h2>Admin Login</h2>
+        <p>Access the member management dashboard</p>
+        <div class="login-error" id="loginError"></div>
+        <form class="login-form" id="loginForm">
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" id="adminEmail" placeholder="admin@gja.org" required>
+          </div>
+          <div class="fg">
+            <label>Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter password" required>
+          </div>
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+        <div class="login-footer">
+          Demo Credentials: admin@gja.org / GJAPass123
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ ADMIN DASHBOARD PAGE ══════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <!-- FLAG STRIP -->
+  <div class="flag-strip">
+    <div class="fs-red"></div>
+    <div class="fs-gold"></div>
+    <div class="fs-green"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>Ghana Journalists Association</span>
+      <span>·</span>
+      <span>Admin Dashboard</span>
+    </div>
+    <div class="topbar-pill" id="adminName">Admin</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-emblem">
+          <div class="logo-emblem-inner">
+            <div class="lei-top">GJA</div>
+            <div class="lei-icon">✒️</div>
+            <div class="lei-bot">GHANA</div>
+          </div>
+        </div>
+        <div class="logo-words">
+          <div class="logo-name">Management <span>Dashboard</span></div>
+          <div class="logo-sub">Member Applications</div>
+        </div>
+      </a>
+      <div class="header-right">
+        <button class="hbtn hbtn-ghost" id="refreshBtn">🔄 Refresh</button>
+        <button class="hbtn hbtn-solid" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <div style="padding:32px;background:var(--surface)">
+    <div class="dashboard-header">
+      <h1>Member Applications</h1>
+      <div class="dashboard-actions">
+        <button class="export-btn" id="exportBtn">📥 Export CSV</button>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- SIDEBAR: STATS & FILTERS -->
+      <div class="dashboard-left">
+        <!-- STATS -->
+        <div class="filter-card">
+          <h3>📊 Statistics</h3>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <h3>Total Applications</h3>
+              <div class="stat-value" id="statTotal">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Pending</h3>
+              <div class="stat-value" id="statPending">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Approved</h3>
+              <div class="stat-value" id="statApproved">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Rejected</h3>
+              <div class="stat-value" id="statRejected">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filter-card">
+          <h3>🔍 Filters</h3>
+          <div class="filter-group">
+            <label>Search by Name/Email</label>
+            <input type="text" id="searchInput" placeholder="Type to search...">
+          </div>
+          <div class="filter-group">
+            <label>Status</label>
+            <select id="statusFilter">
+              <option value="">All Statuses</option>
+              <option value="Pending">Pending Review</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Region</label>
+            <select id="regionFilter">
+              <option value="">All Regions</option>
+              <option>Greater Accra</option>
+              <option>Ashanti</option>
+              <option>Central</option>
+              <option>Eastern</option>
+              <option>Western</option>
+              <option>Volta</option>
+              <option>Northern</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Media Type</label>
+            <select id="mediaFilter">
+              <option value="">All Types</option>
+              <option>Television</option>
+              <option>Radio</option>
+              <option>Print / Newspaper</option>
+              <option>Online / Digital Media</option>
+              <option>Freelance</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN: MEMBERS TABLE -->
+      <div class="dashboard-main">
+        <div class="members-table">
+          <div class="table-header">
+            <div>Name</div>
+            <div>Email</div>
+            <div>Region</div>
+            <div>Organisation</div>
+            <div>Status</div>
+            <div>Actions</div>
+          </div>
+          <div id="membersTableBody">
+            <div class="table-empty" role="status">No members found. Members will appear here once they register.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ USER REGISTRATION PAGE ══════════════════════════════════════ -->
+<div class="page" id="page-registration">
+<div class="flag-strip">
+  <div class="fs-red"></div>
+  <div class="fs-gold"></div>
+  <div class="fs-green"></div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>Ghana Journalists Association</span>
+    <span>·</span>
+    <span>Est. 1949 · Accra, Ghana</span>
+  </div>
+  <div class="topbar-pill">Member Registration Portal 2025</div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-emblem">
+        <div class="logo-emblem-inner">
+          <div class="lei-top">GJA</div>
+          <div class="lei-icon">✒️</div>
+          <div class="lei-bot">GHANA</div>
+        </div>
+      </div>
+      <div class="logo-words">
+        <div class="logo-name">Ghana <span>Journalists</span> Association</div>
+        <div class="logo-sub">Member Registration Portal</div>
+      </div>
+    </a>
+    <div class="header-right">
+      <button class="hbtn hbtn-ghost" id="drivePillBtn" aria-label="Open Google Drive folder">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2L2 19h20L12 2z" fill="#4285F4" opacity="0.25"/>
+          <path d="M2.5 18.5l6.5-11" stroke="#4285F4" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M21.5 18.5L15 7.5" stroke="#FBBC04" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 19h18" stroke="#34A853" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Google Drive
+      </button>
+      <button class="hbtn hbtn-solid" id="adminPageBtn" aria-label="Go to GJA Admin login">GJA Admin</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-geo"></div>
+  <div class="hero-geo2"></div>
+  <div class="hero-ink-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        New Member Registration
+      </div>
+      <h1>The Voice of<br><span class="gold">Journalism</span><br>in <span class="red">Ghana</span></h1>
+      <p class="hero-desc">Join the Ghana Journalists Association — the professional home of journalists, media practitioners, and communicators across Ghana since 1949. Complete the form to register or renew your membership.</p>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-aside-title">Association At a Glance</div>
+      <div class="stat-row">
+        <div class="sv" id="statM">4,200+</div>
+        <div class="sl">Registered Members</div>
+      </div>
+      <div class="stat-row">
+        <div class="sv">16</div>
+        <div class="sl">Regional Chapters</div>
+      </div>
+      <div class="stat-row">
+        <div class="sv" id="statT">76</div>
+        <div class="sl">New This Year</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="prog-bar-wrap">
+  <div class="prog-bar-inner">
+    <div class="prog-lbl" id="progLbl">Form completion</div>
+    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    <div class="prog-num" id="progNum">0%</div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="tab-bar" role="tablist">
+      <div class="tab active" data-tab="personal" role="tab" aria-selected="true" aria-controls="tab-personal">Personal Info</div>
+      <div class="tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="tab-contact">Contact Details</div>
+      <div class="tab" data-tab="professional" role="tab" aria-selected="false" aria-controls="tab-professional">Professional Info</div>
+      <div class="tab" data-tab="confirm" role="tab" aria-selected="false" aria-controls="tab-confirm">Review &amp; Submit</div>
+    </div>
+
+    <form id="gjaForm" novalidate>
+
+      <!-- ══ TAB 1: PERSONAL ══ -->
+      <div class="tab-panel active" id="tab-personal" role="tabpanel" aria-labelledby="tab-personal">
+        <div class="sec-head"><div class="sec-icon">👤</div> Personal Information</div>
+
+        <div class="photo-row">
+          <div class="photo-circle" id="photoCircle">📷</div>
+          <div class="photo-info">
+            <p>Passport Photo</p>
+            <small>Click the circle or button below. JPG/PNG, max 5MB.</small><br>
+            <div class="ubtn" id="photoBtn">Choose Photo</div>
+          </div>
+          <input type="file" id="photoFile" accept="image/*" style="display:none">
+        </div>
+
+        <div class="frow">
+          <div class="fg" id="fg-fname">
+            <label class="fl">First Name <span class="req">*</span></label>
+            <input type="text" name="fname" id="fname" placeholder="e.g. Abena">
+            <span class="ferr">Required</span>
+          </div>
+          <div class="fg" id="fg-mname">
+            <label class="fl">Middle Name <span class="opt">(optional)</span></label>
+            <input type="text" name="mname" placeholder="e.g. Ama">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg" id="fg-lname">
+            <label class="fl">Surname <span class="req">*</span></label>
+            <input type="text" name="lname" id="lname" placeholder="e.g. Boateng">
+            <span class="ferr">Required</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Preferred Name / Byline <span class="opt">(optional)</span></label>
+            <input type="text" name="byline" placeholder="Name used for publication">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg" id="fg-dob">
+            <label class="fl">Date of Birth <span class="req">*</span></label>
+            <input type="date" name="dob" id="dob">
+            <span class="ferr">Required</span>
+          </div>
+          <div class="fg" id="fg-gender">
+            <label class="fl">Gender <span class="req">*</span></label>
+            <select name="gender" id="gender">
+              <option value="">— Select —</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary / Other</option>
+              <option>Prefer not to say</option>
+            </select>
+            <span class="ferr">Required</span>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Nationality</label>
+            <input type="text" name="nationality" value="Ghanaian" placeholder="e.g. Ghanaian">
+          </div>
+          <div class="fg">
+            <label class="fl">Ghana Card / National ID No.</label>
+            <input type="text" name="idno" placeholder="e.g. GHA-000000000-0">
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;margin-top:8px">
+          <button type="button" class="btn-next" style="max-width:200px" data-next-tab="contact">Next: Contact →</button>
+        </div>
+      </div>
+
+      <!-- ══ TAB 2: CONTACT ══ -->
+      <div class="tab-panel" id="tab-contact" role="tabpanel" aria-labelledby="tab-contact">
+        <div class="sec-head"><div class="sec-icon g">📬</div> Contact Details</div>
+
+        <div class="frow">
+          <div class="fg" id="fg-email">
+            <label class="fl">Email Address <span class="req">*</span></label>
+            <input type="email" name="email" id="email" placeholder="you@example.com">
+            <span class="ferr">Valid email required</span>
+          </div>
+          <div class="fg" id="fg-phone">
+            <label class="fl">Mobile Number <span class="req">*</span></label>
+            <input type="tel" name="phone" id="phone" placeholder="+233 XX XXX XXXX">
+            <span class="ferr">Required</span>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">WhatsApp Number <span class="opt">(optional)</span></label>
+            <input type="tel" name="whatsapp" placeholder="If different from mobile">
+          </div>
+          <div class="fg">
+            <label class="fl">Alternative / Work Email <span class="opt">(optional)</span></label>
+            <input type="email" name="altemail" placeholder="work@newsroom.com">
+          </div>
+        </div>
+
+        <div class="frow f1">
+          <div class="fg" id="fg-address">
+            <label class="fl">Residential Address <span class="req">*</span></label>
+            <input type="text" name="address" id="address" placeholder="House No., Street, Area">
+            <span class="ferr">Required</span>
+          </div>
+        </div>
+        <div class="frow t3">
+          <div class="fg">
+            <label class="fl">City / Town</label>
+            <input type="text" name="city" placeholder="e.g. Accra">
+          </div>
+          <div class="fg">
+            <label class="fl">Region</label>
+            <select name="region">
+              <option value="">— Select Region —</option>
+              <option>Greater Accra</option>
+              <option>Ashanti</option>
+              <option>Central</option>
+              <option>Eastern</option>
+              <option>Western</option>
+              <option>Western North</option>
+              <option>Volta</option>
+              <option>Oti</option>
+              <option>Northern</option>
+              <option>Savannah</option>
+              <option>North East</option>
+              <option>Upper East</option>
+              <option>Upper West</option>
+              <option>Bono</option>
+              <option>Bono East</option>
+              <option>Ahafo</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Country</label>
+            <select name="country">
+              <option selected>Ghana</option>
+              <option>Nigeria</option>
+              <option>UK</option>
+              <option>USA</option>
+              <option>Canada</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Ghana Post GPS <span class="opt">(optional)</span></label>
+            <input type="text" name="gps" placeholder="e.g. GA-123-4567">
+          </div>
+          <div class="fg">
+            <label class="fl">P.O. Box <span class="opt">(optional)</span></label>
+            <input type="text" name="pobox" placeholder="e.g. P.O. Box GP 1234, Accra">
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="button" class="btn-back" data-prev-tab="personal">← Back</button>
+          <button type="button" class="btn-next" data-next-tab="professional">Next: Professional →</button>
+        </div>
+      </div>
+
+      <!-- ══ TAB 3: PROFESSIONAL ══ -->
+      <div class="tab-panel" id="tab-professional" role="tabpanel" aria-labelledby="tab-professional">
+        <div class="sec-head"><div class="sec-icon gd">🎙️</div> Professional & Media Information</div>
+
+        <div class="frow">
+          <div class="fg" id="fg-jobtitle">
+            <label class="fl">Job Title / Role <span class="req">*</span></label>
+            <input type="text" name="jobtitle" id="jobtitle" placeholder="e.g. Senior Correspondent">
+            <span class="ferr">Required</span>
+          </div>
+          <div class="fg" id="fg-employer">
+            <label class="fl">Media Organisation / Employer <span class="req">*</span></label>
+            <input type="text" name="employer" id="employer" placeholder="e.g. Ghana Broadcasting Corporation">
+            <span class="ferr">Required</span>
+          </div>
+        </div>
+
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Type of Media Organisation <span class="req">*</span></label>
+            <select name="mediatype" id="mediatype">
+              <option value="">— Select —</option>
+              <option>Television</option>
+              <option>Radio</option>
+              <option>Print / Newspaper</option>
+              <option>Online / Digital Media</option>
+              <option>Magazine</option>
+              <option>News Agency</option>
+              <option>Freelance</option>
+              <option>Public Relations / Communications</option>
+              <option>Academic / Research</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Beat / Area of Coverage</label>
+            <select name="beat">
+              <option value="">— Select —</option>
+              <option>Politics & Governance</option>
+              <option>Business & Economy</option>
+              <option>Health</option>
+              <option>Education</option>
+              <option>Sports</option>
+              <option>Entertainment & Arts</option>
+              <option>Investigative Journalism</option>
+              <option>Science & Technology</option>
+              <option>Environment & Agriculture</option>
+              <option>Crime & Courts</option>
+              <option>Features & Human Interest</option>
+              <option>International / Foreign Desk</option>
+              <option>General</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="fl" style="margin-bottom:8px;display:block">Media Platforms Worked On</label>
+        <div class="media-grid">
+          <label class="mc"><input type="checkbox" name="platform" value="TV"><div class="mc-card"><div class="mc-icon">📺</div><div class="mc-lbl">Television</div></div></label>
+          <label class="mc"><input type="checkbox" name="platform" value="Radio"><div class="mc-card"><div class="mc-icon">📻</div><div class="mc-lbl">Radio</div></div></label>
+          <label class="mc"><input type="checkbox" name="platform" value="Print"><div class="mc-card"><div class="mc-icon">📰</div><div class="mc-lbl">Print</div></div></label>
+          <label class="mc"><input type="checkbox" name="platform" value="Online"><div class="mc-card"><div class="mc-icon">🌐</div><div class="mc-lbl">Online</div></div></label>
+          <label class="mc"><input type="checkbox" name="platform" value="Podcast"><div class="mc-card"><div class="mc-icon">🎙️</div><div class="mc-lbl">Podcast</div></div></label>
+          <label class="mc"><input type="checkbox" name="platform" value="Social Media"><div class="mc-card"><div class="mc-icon">📱</div><div class="mc-lbl">Social Media</div></div></label>
+        </div>
+
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Years in Journalism</label>
+            <select name="experience">
+              <option value="">— Select —</option>
+              <option>Under 1 year</option>
+              <option>1 – 3 years</option>
+              <option>3 – 5 years</option>
+              <option>5 – 10 years</option>
+              <option>10 – 20 years</option>
+              <option>20+ years</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Membership Type</label>
+            <select name="memtype">
+              <option>Full Member</option>
+              <option>Associate Member</option>
+              <option>Student Member</option>
+              <option>Senior / Retired Member</option>
+              <option>Honorary Member</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Highest Qualification</label>
+            <select name="qualification">
+              <option value="">— Select —</option>
+              <option>Certificate / Diploma</option>
+              <option>HND</option>
+              <option>Bachelor's Degree</option>
+              <option>Postgraduate Diploma</option>
+              <option>Master's Degree</option>
+              <option>PhD</option>
+              <option>Professional Certification</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl">Field of Study</label>
+            <input type="text" name="fieldofstudy" placeholder="e.g. Journalism, Communication Studies">
+          </div>
+        </div>
+
+        <div class="frow f1">
+          <div class="fg">
+            <label class="fl">Work / Organisation Website <span class="opt">(optional)</span></label>
+            <input type="url" name="website" placeholder="https://www.yourorganisation.com">
+          </div>
+        </div>
+        <div class="frow f1">
+          <div class="fg">
+            <label class="fl">Portfolio / LinkedIn / Twitter URL <span class="opt">(optional)</span></label>
+            <input type="url" name="portfolio" placeholder="https://linkedin.com/in/yourprofile or @twitterhandle">
+          </div>
+        </div>
+        <div class="frow f1">
+          <div class="fg">
+            <label class="fl">Notable Work / Awards / Publications <span class="opt">(optional)</span></label>
+            <textarea name="notable" placeholder="Briefly describe notable stories, awards, or achievements…"></textarea>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="button" class="btn-back" data-prev-tab="contact">← Back</button>
+          <button type="button" class="btn-next" data-next-tab="confirm">Review & Submit →</button>
+        </div>
+      </div>
+
+      <!-- ══ TAB 4: CONFIRM ══ -->
+      <div class="tab-panel" id="tab-confirm" role="tabpanel" aria-labelledby="tab-confirm">
+        <div class="sec-head"><div class="sec-icon">✅</div> Review Your Information</div>
+
+        <div class="review-grid" id="reviewGrid">
+          <p style="font-size:12.5px;color:var(--ink-faint)">Go back through the tabs to fill in your details, then return here to submit.</p>
+        </div>
+
+        <div class="frow f1" style="margin-bottom:16px">
+          <div class="fg">
+            <label class="fl">How did you hear about GJA?</label>
+            <select name="referral">
+              <option value="">— Select —</option>
+              <option>Colleague / Friend</option>
+              <option>GJA Website</option>
+              <option>Social Media</option>
+              <option>TV / Radio</option>
+              <option>Conference / Event</option>
+              <option>Email / Newsletter</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="consent-area">
+          <div class="crow">
+            <input type="checkbox" id="c1">
+            <label for="c1">I confirm that all information provided is truthful, accurate and complete. <span style="color:var(--err)">*</span></label>
+          </div>
+          <div class="crow">
+            <input type="checkbox" id="c2">
+            <label for="c2">I agree to abide by the <a href="#">GJA Code of Ethics</a>, <a href="#">Constitution</a>, and all regulations of the Ghana Journalists Association. <span style="color:var(--err)">*</span></label>
+          </div>
+          <div class="crow">
+            <input type="checkbox" id="c3">
+            <label for="c3">I consent to my data being securely stored and processed by GJA, including syncing to Google Drive for administrative purposes.</label>
+          </div>
+          <div class="crow">
+            <input type="checkbox" id="c4" checked>
+            <label for="c4">I would like to receive GJA newsletters, event invitations, press freedom alerts, and professional updates via email.</label>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="button" class="btn-back" data-prev-tab="professional">← Back</button>
+          <button type="submit" class="btn-sub" id="submitBtn">Submit GJA Application</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+
+    <!-- Google Forms -->
+    <div class="sc">
+      <div class="sc-head">
+        <div class="sci sci-r">📝</div>
+        <div>
+          <div class="sc-title">Google Forms — Embed</div>
+          <div class="sc-sub">Link your GJA Google Form here</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="url-row">
+          <input type="text" id="gformsInput" placeholder="Paste Google Form URL…" aria-label="Google Form URL">
+          <button class="btn-embed" id="embedFormBtn" aria-label="Embed Google Form">Embed</button>
+        </div>
+        <div class="ev" id="gfViewport">
+          <div class="ep">
+            <div class="epi">📋</div>
+            <p>Paste your Google Form URL<br>above and click <strong>Embed</strong>.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="si"><div class="sn">1</div><div class="st">Open your <strong>Google Form</strong> → click the <strong>Send</strong> button at the top right</div></div>
+          <div class="si"><div class="sn">2</div><div class="st">Click the <strong>link icon (🔗)</strong> → copy the URL → paste above</div></div>
+          <div class="si"><div class="sn">3</div><div class="st">Alternatively, use the <strong>&lt;&gt; Embed</strong> tab — copy just the <em>src</em> value from the iframe</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Drive -->
+    <div class="sc">
+      <div class="sc-head">
+        <div class="sci sci-g">📁</div>
+        <div>
+          <div class="sc-title">Google Drive — Members Folder</div>
+          <div class="sc-sub">Store and manage member records</div>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="url-row">
+          <input type="text" id="driveInput" placeholder="Paste Drive folder URL…" aria-label="Google Drive folder URL">
+          <button class="btn-save" id="saveDriveBtn" aria-label="Save Google Drive folder link">Save</button>
+        </div>
+        <div class="drive-st" id="driveSt"></div>
+        <div class="steps">
+          <div class="si"><div class="sn">1</div><div class="st"><strong>Google Drive</strong> → New → Folder → name it <em>"GJA Members 2025"</em></div></div>
+          <div class="si"><div class="sn">2</div><div class="st">Right-click folder → <strong>Share</strong> → set access → copy link → paste above</div></div>
+          <div class="si"><div class="sn">3</div><div class="st">Create a <strong>Google Sheet</strong> inside named <em>"Member Registry"</em> for the data</div></div>
+          <div class="si"><div class="sn">4</div><div class="st">In Google Forms → <strong>Responses tab</strong> → click the green Sheet icon → responses auto-populate the Sheet</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GJA Info -->
+    <div class="gja-card">
+      <h4>✒️ About Your GJA Membership</h4>
+      <div class="gja-row">
+        <div class="gja-bar r"></div>
+        <div class="gja-txt"><strong>Press Freedom</strong> — GJA advocates for a free, independent and responsible press in Ghana</div>
+      </div>
+      <div class="gja-row">
+        <div class="gja-bar g"></div>
+        <div class="gja-txt"><strong>Professional Development</strong> — Access training, workshops, fellowships and media scholarships</div>
+      </div>
+      <div class="gja-row">
+        <div class="gja-bar gr"></div>
+        <div class="gja-txt"><strong>Press ID & Accreditation</strong> — Receive an official GJA Press Card valid for media access across Ghana</div>
+      </div>
+      <div class="gja-row">
+        <div class="gja-bar r"></div>
+        <div class="gja-txt"><strong>Welfare Support</strong> — GJA members benefit from health, legal, and welfare support programmes</div>
+      </div>
+      <div class="gja-row">
+        <div class="gja-bar g"></div>
+        <div class="gja-txt"><strong>Network</strong> — Connect with 4,200+ journalists and media practitioners across all 16 regions</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-bg" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+  <div class="modal">
+    <div class="modal-flag"><div class="mf-r"></div><div class="mf-g"></div><div class="mf-gr"></div></div>
+    <div class="modal-check" aria-hidden="true">✅</div>
+    <h3 id="successModalTitle">Application Received!</h3>
+    <p>Thank you for applying to join the Ghana Journalists Association. Your application will be reviewed by the GJA Secretariat and you will be contacted within 5–7 working days.</p>
+    <div class="modal-ref" id="modalRefBlock" role="region" aria-live="polite"></div>
+    <div class="modal-btns">
+      <button type="button" class="mbtn mbtn-s" id="registerAnotherBtn">Register Another</button>
+      <button type="button" class="mbtn mbtn-p" id="doneBtn">Done</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ── CONSTANTS ──
+const CONFIG = {
+  TABS: ['personal','contact','professional','confirm'],
+  REQUIRED_FIELDS: ['fname','lname','dob','gender','email','phone','address','jobtitle','employer'],
+  SUBMISSION_DELAY_MS: 1800,
+  STORAGE_KEYS: { drive: 'gja_drive' },
+  VALIDATION: {
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    googleDrive: /drive\.google\.com/
+  }
+};
+
+// ── HTML SANITIZATION & SECURITY ──
+const sanitizeHTML = (str) => {
+  if (!str) return '';
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(str).replace(/[&<>"']/g, m => map[m]);
+};
+
+const sanitizeInput = (str) => {
+  return sanitizeHTML(str.trim());
+};
+
+// ── DOM CACHE ──
+const dom = {
+  tabs: null,
+  tabPanels: null,
+  form: null,
+  submitBtn: null,
+  progressFill: document.getElementById('progFill'),
+  progressNum: document.getElementById('progNum'),
+  progressLbl: document.getElementById('progLbl'),
+  successModal: document.getElementById('successModal'),
+  photoCircle: document.getElementById('photoCircle'),
+  driveInput: document.getElementById('driveInput'),
+  driveSt: document.getElementById('driveSt'),
+  statT: document.getElementById('statT'),
+  requiredElements: {}
+};
+
+// Cache required field elements
+CONFIG.REQUIRED_FIELDS.forEach(id => {
+  dom.requiredElements[id] = document.getElementById(id);
+});
+
+// Cache tab and panel elements
+window.addEventListener('DOMContentLoaded', () => {
+  dom.tabs = document.querySelectorAll('.tab');
+  dom.tabPanels = CONFIG.TABS.map(t => document.getElementById('tab-'+t));
+  dom.form = document.getElementById('gjaForm');
+  dom.submitBtn = document.getElementById('submitBtn');
+
+  // Tab click handler
+  document.querySelectorAll('[data-tab]').forEach(tab => {
+    tab.addEventListener('click', () => gotoTab(tab.dataset.tab));
+  });
+
+  // Next/prev button handlers
+  document.querySelectorAll('[data-next-tab]').forEach(btn => {
+    btn.addEventListener('click', () => gotoTab(btn.dataset.nextTab));
+  });
+
+  document.querySelectorAll('[data-prev-tab]').forEach(btn => {
+    btn.addEventListener('click', () => gotoTab(btn.dataset.prevTab));
+  });
+
+  // Photo input handlers
+  const photoFile = document.getElementById('photoFile');
+  dom.photoCircle.addEventListener('click', () => photoFile.click());
+  document.getElementById('photoBtn').addEventListener('click', () => photoFile.click());
+  photoFile.addEventListener('change', loadPhoto);
+
+  // Sidebar handlers
+  document.getElementById('embedFormBtn').addEventListener('click', embedForm);
+  document.getElementById('saveDriveBtn').addEventListener('click', saveDrive);
+  document.getElementById('drivePillBtn').addEventListener('click', openDriveLink);
+
+// ── MODAL BUTTON HANDLERS ──
+document.getElementById('registerAnotherBtn')?.addEventListener('click', closeModal);
+document.getElementById('doneBtn')?.addEventListener('click', closeModal);
+
+  // Load saved drive URL
+  const driveUrl = localStorage.getItem(CONFIG.STORAGE_KEYS.drive);
+  if (driveUrl) {
+    dom.driveInput.value = driveUrl;
+    document.getElementById('drivePillBtn').setAttribute('data-url', driveUrl);
+  }
+
+  updateProgress();
+});
+
+// ── TABS ──
+function gotoTab(id) {
+  const tabIndex = CONFIG.TABS.indexOf(id);
+  if (tabIndex === -1) return;
+
+  // Remove active from all
+  dom.tabPanels.forEach(panel => panel.classList.remove('active'));
+  dom.tabs.forEach(tab => {
+    tab.classList.remove('active');
+    tab.setAttribute('aria-selected', 'false');
+  });
+
+  // Add active to current
+  dom.tabPanels[tabIndex].classList.add('active');
+  dom.tabs[tabIndex].classList.add('active');
+  dom.tabs[tabIndex].setAttribute('aria-selected', 'true');
+
+  if (id === 'confirm') buildReview();
+  updateProgress();
+  window.scrollTo({top: 0, behavior:'smooth'});
+  
+  // Focus the first form field in the new tab
+  const firstInput = dom.tabPanels[tabIndex].querySelector('input, select, textarea, button');
+  if (firstInput) firstInput.focus();
+}
+
+function nextTab(id) { gotoTab(id); }
+
+// ── PHOTO ──
+function loadPhoto(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const img = document.createElement('img');
+    img.src = ev.target.result;
+    img.alt = 'Passport photo';
+    dom.photoCircle.innerHTML = '';
+    dom.photoCircle.appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── PROGRESS ──
+function updateProgress() {
+  let filled = 0;
+  CONFIG.REQUIRED_FIELDS.forEach(id => {
+    if (dom.requiredElements[id]?.value.trim()) filled++;
+  });
+
+  const percent = Math.round((filled / CONFIG.REQUIRED_FIELDS.length) * 100);
+  dom.progressFill.style.width = percent + '%';
+  dom.progressNum.textContent = percent + '%';
+  dom.progressLbl.textContent = percent === 100 ? 'All required fields filled ✓' : 'Form completion';
+}
+
+// Event delegation for form inputs
+document.addEventListener('input', (e) => {
+  if (['input','select','textarea'].includes(e.target.tagName.toLowerCase())) {
+    updateProgress();
+  }
+});
+
+// Prevent form submission on Enter in text inputs (keep only tab navigation)
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type === 'text') {
+    e.preventDefault();
+    const form = e.target.closest('form');
+    const inputs = Array.from(form.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea'));
+    const currentIndex = inputs.indexOf(e.target);
+    if (currentIndex < inputs.length - 1) {
+      inputs[currentIndex + 1].focus();
+    }
+  }
+});
+
+// ── VALIDATION ──
+const validationRules = [
+  { id:'fname', fg:'fg-fname', fn: v => v.trim().length > 0, msg: 'First name is required' },
+  { id:'lname', fg:'fg-lname', fn: v => v.trim().length > 0, msg: 'Surname is required' },
+  { id:'dob',   fg:'fg-dob',   fn: v => v.trim().length > 0, msg: 'Date of birth is required' },
+  { id:'gender',fg:'fg-gender',fn: v => v.trim().length > 0, msg: 'Please select a gender' },
+  { id:'email', fg:'fg-email', fn: v => CONFIG.VALIDATION.email.test(v), msg: 'Valid email required (e.g., name@domain.com)' },
+  { id:'phone', fg:'fg-phone', fn: v => v.trim().length > 5, msg: 'Valid phone number required' },
+  { id:'address',fg:'fg-address',fn: v => v.trim().length > 0, msg: 'Residential address is required' },
+  { id:'jobtitle',fg:'fg-jobtitle',fn: v => v.trim().length > 0, msg: 'Job title is required' },
+  { id:'employer',fg:'fg-employer',fn: v => v.trim().length > 0, msg: 'Media organisation/employer is required' },
+];
+
+function applyValidationResult(fieldGroup, isValid) {
+  fieldGroup.classList.toggle('err', !isValid);
+  const input = fieldGroup.querySelector('input, select, textarea');
+  if (input) {
+    input.setAttribute('aria-invalid', !isValid);
+  }
+}
+
+function validate() {
+  let isValid = true;
+
+  validationRules.forEach(rule => {
+    const field = document.getElementById(rule.id);
+    const fieldGroup = document.getElementById(rule.fg);
+    if (!field || !fieldGroup) return;
+
+    const passesValidation = rule.fn(field.value);
+    applyValidationResult(fieldGroup, passesValidation);
+    
+    // Update error message if available
+    const errEl = fieldGroup.querySelector('.ferr');
+    if (errEl && rule.msg) {
+      errEl.textContent = rule.msg;
+    }
+    
+    if (!passesValidation) isValid = false;
+  });
+
+  if (!document.getElementById('c1').checked || !document.getElementById('c2').checked) {
+    alert('Please accept the required consent checkboxes (marked with *) to proceed.');
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+// ── REVIEW ──
+function buildReview() {
+  const getFieldValue = (id) => {
+    const el = document.getElementById(id);
+    const value = el?.value.trim() || '';
+    return value ? sanitizeHTML(value) : '—';
+  };
+
+  const rows = [
+    ['Full Name', getFieldValue('fname') + ' ' + getFieldValue('lname')],
+    ['Date of Birth', getFieldValue('dob')],
+    ['Gender', getFieldValue('gender')],
+    ['Email', getFieldValue('email')],
+    ['Phone', getFieldValue('phone')],
+    ['Address', getFieldValue('address')],
+    ['Job Title', getFieldValue('jobtitle')],
+    ['Employer', getFieldValue('employer')],
+    ['Media Type', getFieldValue('mediatype')],
+  ];
+
+  const reviewGrid = document.getElementById('reviewGrid');
+  reviewGrid.innerHTML = '<p style="font-size:11.5px;color:var(--ink-faint);margin-bottom:10px">Please verify before submitting:</p>';
+
+  rows.forEach(([label, value]) => {
+    const row = document.createElement('div');
+    row.className = 'rv';
+
+    const labelEl = document.createElement('span');
+    labelEl.textContent = label;
+
+    const valueEl = document.createElement('strong');
+    valueEl.textContent = value;
+
+    row.appendChild(labelEl);
+    row.appendChild(valueEl);
+    reviewGrid.appendChild(row);
+  });
+}
+
+// ── SUBMIT (CONSOLIDATED - SINGLE HANDLER) ──
+if (dom.form) {
+  dom.form.addEventListener('submit', handleFormSubmit);
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  if (!validate()) return;
+
+  dom.submitBtn.disabled = true;
+  dom.submitBtn.innerHTML = '<span aria-hidden="true">⏳</span> Submitting…';
+  dom.submitBtn.setAttribute('aria-busy', 'true');
+
+  setTimeout(() => {
+    const fname = sanitizeInput(document.getElementById('fname').value);
+    const lname = sanitizeInput(document.getElementById('lname').value);
+    const email = sanitizeInput(document.getElementById('email').value);
+    const employer = sanitizeInput(document.getElementById('employer').value);
+    const memId = 'GJA-' + new Date().getFullYear() + '-' + String(Date.now()).slice(-5);
+    const date = new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
+
+    const modalRef = document.getElementById('modalRefBlock');
+    modalRef.innerHTML = '';
+
+    const refData = [
+      ['Member ID', memId],
+      ['Full Name', fname + ' ' + lname],
+      ['Email', email],
+      ['Organisation', employer || '—'],
+      ['Application Date', date],
+      ['Status', 'Under Review'],
+    ];
+
+    refData.forEach(([label, value]) => {
+      const row = document.createElement('div');
+      row.className = 'mref-row';
+
+      const labelEl = document.createElement('span');
+      labelEl.textContent = label;
+
+      const valueEl = document.createElement('strong');
+      valueEl.textContent = value;
+
+      row.appendChild(labelEl);
+      row.appendChild(valueEl);
+      modalRef.appendChild(row);
+    });
+
+    // Store member data
+    const formData = getFormDataFromSheet();
+    const newMember = {
+      id: memId,
+      fname: fname,
+      lname: lname,
+      email: email,
+      phone: sanitizeInput(document.getElementById('phone').value),
+      address: sanitizeInput(document.getElementById('address').value),
+      region: document.querySelector('select[name="region"]')?.value || '',
+      employer: employer,
+      mediatype: document.querySelector('select[name="mediatype"]')?.value || '',
+      status: 'Pending',
+      date: date,
+      photoUrl: document.getElementById('photoCircle').querySelector('img')?.src || ''
+    };
+    formData.push(newMember);
+    localStorage.setItem(ADMIN_CONFIG.MEMBERS_KEY, JSON.stringify(formData));
+
+    dom.successModal.classList.add('open');
+    dom.successModal.focus();
+    if (dom.statT) dom.statT.textContent = parseInt(dom.statT.textContent) + 1;
+
+    dom.submitBtn.disabled = false;
+    dom.submitBtn.innerHTML = 'Submit GJA Application';
+    dom.submitBtn.removeAttribute('aria-busy');
+  }, CONFIG.SUBMISSION_DELAY_MS);
+}
+
+function closeModal() {
+  dom.successModal.classList.remove('open');
+  dom.form?.reset();
+  dom.photoCircle.innerHTML = '📷';
+  gotoTab('personal');
+  updateProgress();
+  // Return focus to submit button
+  dom.submitBtn?.focus();
+}
+
+// ── GOOGLE FORMS ──
+function embedForm() {
+  const url = document.getElementById('gformsInput').value.trim();
+  if (!url) { 
+    alert('Please paste a Google Form URL.'); 
+    return; 
+  }
+  const embedUrl = url.includes('embedded=true') ? url : url + (url.includes('?') ? '&' : '?') + 'embedded=true';
+  const viewport = document.getElementById('gfViewport');
+  viewport.innerHTML = `<iframe src="${sanitizeHTML(embedUrl)}" width="100%" height="540" frameborder="0" title="Google Form">Loading...</iframe>`;
+  viewport.setAttribute('role', 'region');
+  viewport.setAttribute('aria-label', 'Embedded Google Form');
+}
+
+// ── GOOGLE DRIVE ──
+function setStatus(element, type, message) {
+  element.className = 'drive-st dst-' + type;
+  element.textContent = message;
+  element.setAttribute('role', 'status');
+  element.setAttribute('aria-live', 'polite');
+}
+
+function saveDrive() {
+  const url = dom.driveInput.value.trim();
+
+  if (!url) {
+    setStatus(dom.driveSt, 'err', '⚠ Please enter a URL.');
+    return;
+  }
+
+  if (!CONFIG.VALIDATION.googleDrive.test(url)) {
+    setStatus(dom.driveSt, 'err', '⚠ Please enter a valid Google Drive URL.');
+    return;
+  }
+
+  localStorage.setItem(CONFIG.STORAGE_KEYS.drive, url);
+  setStatus(dom.driveSt, 'ok', '✓ Drive folder linked. The header button now opens your folder.');
+  document.getElementById('drivePillBtn').setAttribute('data-url', url);
+}
+
+function openDriveLink(e) {
+  const url = localStorage.getItem(CONFIG.STORAGE_KEYS.drive) || e.currentTarget.getAttribute('data-url');
+  if (url) { e.preventDefault(); window.open(url, '_blank'); }
+}
+
+// ══════════════════════════════════════ ADMIN LOGIN & DASHBOARD ══════════════════════════════════════
+
+// WARNING: In production, NEVER store credentials in code. Use a secure backend.
+const ADMIN_CONFIG = {
+  // SECURITY NOTE: These credentials should be stored securely on a backend server.
+  // Contact your administrator to change credentials.
+  CREDENTIALS: [
+    { email: 'admin@gja.org', password: 'GJAPass123' }
+  ],
+  AUTH_KEY: 'gja_admin_auth',
+  MEMBERS_KEY: 'gja_members_data'
+};
+
+// ── PAGE ROUTING ──
+function switchPage(pageName) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const targetPage = document.getElementById('page-' + pageName);
+  if (targetPage) {
+    targetPage.classList.add('active');
+    // Move focus to main content
+    const mainContent = targetPage.querySelector('h1, h2, .login-card');
+    if (mainContent) mainContent.focus();
+  }
+  window.scrollTo({ top: 0 });
+}
+
+// ── ADMIN LOGIN ──
+document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = sanitizeInput(document.getElementById('adminEmail').value);
+  const password = document.getElementById('adminPassword').value;
+  const errorEl = document.getElementById('loginError');
+
+  // Clear previous error
+  errorEl.style.display = 'none';
+  errorEl.textContent = '';
+
+  if (!email || !password) {
+    errorEl.style.display = 'block';
+    errorEl.textContent = 'Please enter both email and password.';
+    return;
+  }
+
+  const isValid = ADMIN_CONFIG.CREDENTIALS.some(c => c.email === email && c.password === password);
+
+  if (isValid) {
+    const token = btoa(email + ':' + Date.now());
+    localStorage.setItem(ADMIN_CONFIG.AUTH_KEY, token);
+    localStorage.setItem('gja_admin_email', email);
+    document.getElementById('adminName').textContent = email.split('@')[0];
+    switchPage('dashboard');
+    loadMembersData();
+  } else {
+    errorEl.style.display = 'block';
+    errorEl.setAttribute('role', 'alert');
+    errorEl.textContent = 'Invalid credentials. Try: admin@gja.org / GJAPass123';
+    document.getElementById('adminPassword').value = '';
+    document.getElementById('adminEmail').focus();
+  }
+});
+
+// ── CHECK ADMIN AUTH ──
+function checkAdminAuth() {
+  const token = localStorage.getItem(ADMIN_CONFIG.AUTH_KEY);
+  if (!token) return false;
+  const age = Date.now() - parseInt(atob(token).split(':')[1]);
+  return age < 24 * 60 * 60 * 1000; // 24 hour session
+}
+
+// ── LOGOUT ──
+document.getElementById('logoutBtn')?.addEventListener('click', () => {
+  localStorage.removeItem(ADMIN_CONFIG.AUTH_KEY);
+  localStorage.removeItem('gja_admin_email');
+  switchPage('login');
+  document.getElementById('loginForm').reset();
+  document.getElementById('loginError').style.display = 'none';
+});
+
+// ── DASHBOARD: LOAD MEMBERS ──
+function loadMembersData() {
+  const formData = getFormDataFromSheet();
+  localStorage.setItem(ADMIN_CONFIG.MEMBERS_KEY, JSON.stringify(formData));
+  renderMembersTable(formData);
+  updateDashboardStats(formData);
+}
+
+// Simulate fetching from Google Sheet (in production, use Sheets API)
+function getFormDataFromSheet() {
+  const saved = localStorage.getItem(ADMIN_CONFIG.MEMBERS_KEY);
+  return saved ? JSON.parse(saved) : [];
+}
+
+// When user submits registration, data is now captured in consolidated handleFormSubmit
+
+// ── DASHBOARD: RENDER TABLE ──
+function renderMembersTable(members = []) {
+  const tbody = document.getElementById('membersTableBody');
+  if (!members || members.length === 0) {
+    tbody.innerHTML = '<div class="table-empty" role="status">No members found.</div>';
+    return;
+  }
+
+  tbody.innerHTML = members.map(m => `
+    <div class="table-row">
+      <div class="member-name">${sanitizeHTML(m.fname)} ${sanitizeHTML(m.lname)}</div>
+      <div>${sanitizeHTML(m.email)}</div>
+      <div>${sanitizeHTML(m.region || '')}</div>
+      <div>${sanitizeHTML(m.employer || '')}</div>
+      <div><span class="member-status ${m.status?.toLowerCase() || 'pending'}">${sanitizeHTML(m.status || 'Pending')}</span></div>
+      <div class="action-buttons">
+        <button type="button" class="action-btn approve" data-id="${sanitizeHTML(m.id)}" data-action="approve" aria-label="Approve ${sanitizeHTML(m.fname)} ${sanitizeHTML(m.lname)}">✓</button>
+        <button type="button" class="action-btn reject" data-id="${sanitizeHTML(m.id)}" data-action="reject" aria-label="Reject ${sanitizeHTML(m.fname)} ${sanitizeHTML(m.lname)}">✕</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Add event delegation for action buttons
+  tbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('.action-btn');
+    if (btn) {
+      const id = btn.getAttribute('data-id');
+      const action = btn.getAttribute('data-action');
+      updateMemberStatus(id, action === 'approve' ? 'Approved' : 'Rejected');
+    }
+  });
+}
+
+// ── DASHBOARD: UPDATE MEMBER STATUS ──
+function updateMemberStatus(memberId, newStatus) {
+  const members = getFormDataFromSheet();
+  const member = members.find(m => m.id === memberId);
+  if (member) {
+    member.status = newStatus;
+    localStorage.setItem(ADMIN_CONFIG.MEMBERS_KEY, JSON.stringify(members));
+    renderMembersTable(filterMembers(members));
+    updateDashboardStats(members);
+  }
+}
+
+// ── DASHBOARD: FILTER MEMBERS ──
+function filterMembers(members = []) {
+  if (!members.length) members = getFormDataFromSheet();
+
+  const search = (document.getElementById('searchInput')?.value || '').toLowerCase();
+  const statusFilter = document.getElementById('statusFilter')?.value || '';
+  const regionFilter = document.getElementById('regionFilter')?.value || '';
+  const mediaFilter = document.getElementById('mediaFilter')?.value || '';
+
+  return members.filter(m => {
+    const matchesSearch = !search ||
+      (m.fname || '').toLowerCase().includes(search) ||
+      (m.lname || '').toLowerCase().includes(search) ||
+      (m.email || '').toLowerCase().includes(search);
+    const matchesStatus = !statusFilter || m.status === statusFilter;
+    const matchesRegion = !regionFilter || m.region === regionFilter;
+    const matchesMedia = !mediaFilter || m.mediatype === mediaFilter;
+
+    return matchesSearch && matchesStatus && matchesRegion && matchesMedia;
+  });
+}
+
+// ── DASHBOARD: STATS ──
+function updateDashboardStats(members = []) {
+  if (!members.length) members = getFormDataFromSheet();
+
+  const total = members.length;
+  const pending = members.filter(m => m.status === 'Pending').length;
+  const approved = members.filter(m => m.status === 'Approved').length;
+  const rejected = members.filter(m => m.status === 'Rejected').length;
+
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statPending').textContent = pending;
+  document.getElementById('statApproved').textContent = approved;
+  document.getElementById('statRejected').textContent = rejected;
+}
+
+// ── DASHBOARD: FILTER HANDLERS ──
+document.getElementById('searchInput')?.addEventListener('input', () => {
+  const filtered = filterMembers();
+  renderMembersTable(filtered);
+});
+
+['statusFilter', 'regionFilter', 'mediaFilter'].forEach(id => {
+  document.getElementById(id)?.addEventListener('change', () => {
+    const filtered = filterMembers();
+    renderMembersTable(filtered);
+  });
+});
+
+// ── DASHBOARD: REFRESH ──
+document.getElementById('refreshBtn')?.addEventListener('click', () => {
+  loadMembersData();
+  alert('Data refreshed');
+});
+
+// ── DASHBOARD: EXPORT CSV ──
+document.getElementById('exportBtn')?.addEventListener('click', () => {
+  const members = getFormDataFromSheet();
+  if (!members.length) {
+    alert('No members to export');
+    return;
+  }
+
+  const headers = ['ID', 'First Name', 'Last Name', 'Email', 'Phone', 'Region', 'Organisation', 'Media Type', 'Status', 'Date'];
+  const rows = members.map(m => [
+    m.id || '',
+    m.fname || '',
+    m.lname || '',
+    m.email || '',
+    m.phone || '',
+    m.region || '',
+    m.employer || '',
+    m.mediatype || '',
+    m.status || 'Pending',
+    m.date || ''
+  ]);
+
+  const csv = [
+    headers.join(','),
+    ...rows.map(row => row.map(cell => '"' + (cell + '').replace(/"/g, '\\"') + '"').join(','))
+  ].join('\n');
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  link.setAttribute('download', 'gja-members-' + new Date().toISOString().split('T')[0] + '.csv');
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+// ── ADMIN PAGE BUTTON ──
+document.getElementById('adminPageBtn')?.addEventListener('click', () => switchPage('login'));
+
+// ── INIT ON PAGE LOAD ──
+window.addEventListener('DOMContentLoaded', () => {
+  if (checkAdminAuth()) {
+    const email = localStorage.getItem('gja_admin_email') || 'Admin';
+    document.getElementById('adminName').textContent = email.split('@')[0];
+    switchPage('dashboard');
+    loadMembersData();
+  } else {
+    switchPage('login');
+  }
+});
+</script>
+</body>
+</html>

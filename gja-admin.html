@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GJA Admin Dashboard — Member Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gja-style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ ADMIN LOGIN PAGE ══════════════════════════════════════ -->
+<div class="page active" id="page-login">
+  <!-- FLAG STRIP -->
+  <div class="flag-strip">
+    <div class="fs-red"></div>
+    <div class="fs-gold"></div>
+    <div class="fs-green"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <div class="topbar" style="justify-content:center">
+    <div>Ghana Journalists Association · Administrator Portal</div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-content">
+      <div class="login-card">
+        <h2>Admin Login</h2>
+        <p>Access the member management dashboard</p>
+        <div class="login-error" id="loginError" role="alert"></div>
+        <form class="login-form" id="loginForm">
+          <div class="fg">
+            <label for="adminEmail">Email Address</label>
+            <input type="email" id="adminEmail" placeholder="admin@gja.org" required>
+          </div>
+          <div class="fg">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter password" required>
+          </div>
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+        <div class="login-footer">
+          Demo Credentials: admin@gja.org / GJAPass123
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ ADMIN DASHBOARD PAGE ══════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <!-- FLAG STRIP -->
+  <div class="flag-strip">
+    <div class="fs-red"></div>
+    <div class="fs-gold"></div>
+    <div class="fs-green"></div>
+  </div>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span>Ghana Journalists Association</span>
+      <span>·</span>
+      <span>Admin Dashboard</span>
+    </div>
+    <div class="topbar-pill" id="adminName">Admin</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-emblem">
+          <div class="logo-emblem-inner">
+            <div class="lei-top">GJA</div>
+            <div class="lei-icon">✒️</div>
+            <div class="lei-bot">GHANA</div>
+          </div>
+        </div>
+        <div class="logo-words">
+          <div class="logo-name">Management <span>Dashboard</span></div>
+          <div class="logo-sub">Member Applications</div>
+        </div>
+      </a>
+      <div class="header-right">
+        <button class="hbtn hbtn-ghost" id="refreshBtn" aria-label="Refresh member data">🔄 Refresh</button>
+        <button class="hbtn hbtn-solid" id="logoutBtn" aria-label="Log out">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <div style="padding:32px;background:var(--surface)">
+    <div class="dashboard-header">
+      <h1>Member Applications</h1>
+      <div class="dashboard-actions">
+        <button class="export-btn" id="exportBtn" aria-label="Export members as CSV">📥 Export CSV</button>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- SIDEBAR: STATS & FILTERS -->
+      <div class="dashboard-left">
+        <!-- STATS -->
+        <div class="filter-card">
+          <h3>📊 Statistics</h3>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <h3>Total Applications</h3>
+              <div class="stat-value" id="statTotal">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Pending</h3>
+              <div class="stat-value" id="statPending">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Approved</h3>
+              <div class="stat-value" id="statApproved">0</div>
+            </div>
+            <div class="stat-card">
+              <h3>Rejected</h3>
+              <div class="stat-value" id="statRejected">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filter-card">
+          <h3>🔍 Filters</h3>
+          <div class="filter-group">
+            <label for="searchInput">Search by Name/Email</label>
+            <input type="text" id="searchInput" placeholder="Type to search...">
+          </div>
+          <div class="filter-group">
+            <label for="statusFilter">Status</label>
+            <select id="statusFilter">
+              <option value="">All Statuses</option>
+              <option value="Pending">Pending Review</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="regionFilter">Region</label>
+            <select id="regionFilter">
+              <option value="">All Regions</option>
+              <option>Greater Accra</option>
+              <option>Ashanti</option>
+              <option>Central</option>
+              <option>Eastern</option>
+              <option>Western</option>
+              <option>Volta</option>
+              <option>Northern</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="mediaFilter">Media Type</label>
+            <select id="mediaFilter">
+              <option value="">All Types</option>
+              <option>Television</option>
+              <option>Radio</option>
+              <option>Print / Newspaper</option>
+              <option>Online / Digital Media</option>
+              <option>Freelance</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN: MEMBERS TABLE -->
+      <div class="dashboard-main">
+        <div class="members-table">
+          <div class="table-header" role="rowheader">
+            <div>Name</div>
+            <div>Email</div>
+            <div>Region</div>
+            <div>Organisation</div>
+            <div>Status</div>
+            <div>Actions</div>
+          </div>
+          <div id="membersTableBody">
+            <div class="table-empty" role="status">No members found. Members will appear here once they register.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="gja-admin.js"></script>
+</body>
+</html>
+
